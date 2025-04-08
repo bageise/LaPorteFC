@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporte FC - Field Request</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+        label { display: block; margin: 10px 0 5px; }
+        input, select, button { width: 100%; padding: 8px; margin-bottom: 10px; }
+        #message { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Laporte FC Field Request</h1>
+    <form id="requestForm">
+        <label for="teamName">Team Name:</label>
+        <input type="text" id="teamName" required>
+        
+        <label for="field">Field:</label>
+        <select id="field" required>
+            <option value="">Select a Field</option>
+            <option value="Field 1">Field 1</option>
+            <option value="Field 2">Field 2</option>
+            <option value="Field 3">Field 3</option>
+        </select>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+        
+        <label for="timeSlot">Time Slot:</label>
+        <select id="timeSlot" required>
+            <option value="">Select a Time</option>
+            <option value="5-6 PM">5-6 PM</option>
+            <option value="6-7 PM">6-7 PM</option>
+            <option value="7-8 PM">7-8 PM</option>
+        </select>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        
+        <button type="submit">Submit Request</button>
+    </form>
+    <div id="message"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
