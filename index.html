@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporte FC - Field Request</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; }
         label { display: block; margin: 10px 0 5px; }
         input, select, button { width: 100%; padding: 8px; margin-bottom: 10px; }
         #message { margin-top: 10px; }
+        #calendar { margin-top: 20px; }
     </style>
 </head>
 <body>
@@ -25,16 +27,11 @@
             <option value="Field 3">Field 3</option>
         </select>
         
-        <label for="date">Date:</label>
-        <input type="date" id="date" required>
+        <label>Available Slots:</label>
+        <div id="calendar"></div>
         
-        <label for="timeSlot">Time Slot:</label>
-        <select id="timeSlot" required>
-            <option value="">Select a Time</option>
-            <option value="5-6 PM">5-6 PM</option>
-            <option value="6-7 PM">6-7 PM</option>
-            <option value="7-8 PM">7-8 PM</option>
-        </select>
+        <input type="hidden" id="date" name="date">
+        <input type="hidden" id="timeSlot" name="timeSlot">
         
         <label for="email">Email:</label>
         <input type="email" id="email" required>
@@ -43,6 +40,7 @@
     </form>
     <div id="message"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
