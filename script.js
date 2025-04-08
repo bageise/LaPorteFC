@@ -1,21 +1,4 @@
-document.getElementById('requestForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const teamName = document.getElementById('teamName').value;
-    const field = document.getElementById('field').value;
-    const date = document.getElementById('date').value;
-    const timeSlot = document.getElementById('timeSlot').value;
-    const email = document.getElementById('email').value;
-    
-    const data = { teamName, field, date, timeSlot, email };
-    
-    javascript
 
-    Collapse
-    
-    Wrap
-    
-    Copy
     document.getElementById('requestForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
