@@ -7,20 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'timeGridWeek,timeGridDay'
         },
-        slotMinTime: '17:00:00', // 5 PM
-        slotMaxTime: '20:00:00', // 8 PM
-        slotDuration: '01:00:00', // 1-hour slots
+        slotMinTime: '17:00:00',
+        slotMaxTime: '20:00:00',
+        slotDuration: '01:00:00',
         selectable: true,
         events: function(fetchInfo, successCallback, failureCallback) {
-            fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbyhGbzISHQKpbrwGwZsyx_SLFcqkLUiEt58DgGxAZ5-qrb9DuHstHU0-XfNY5NbY-zNag/exec')
+            fetch('https://laportefc-cors-bagei2.herokuapp.com/https://script.google.com/macros/s/AKfycbyhGbzISHQKpbrwGwZsyx_SLFcqkLUiEt58DgGxAZ5-qrb9DuHstHU0-XfNY5NbY-zNag/exec')
                 .then(response => response.json())
                 .then(data => successCallback(data))
                 .catch(error => failureCallback(error));
         },
         select: function(info) {
-            const date = info.startStr.split('T')[0]; // YYYY-MM-DD
-            const time = info.start.toLocaleTimeString([], { hour: 'numeric', hour12: true }); // e.g., "5 PM"
-            const endTime = info.end.toLocaleTimeString([], { hour: 'numeric', hour12: true }); // e.g., "6 PM"
+            const date = info.startStr.split('T')[0];
+            const time = info.start.toLocaleTimeString([], { hour: 'numeric', hour12: true });
+            const endTime = info.end.toLocaleTimeString([], { hour: 'numeric', hour12: true });
             document.getElementById('date').value = date;
             document.getElementById('timeSlot').value = `${time}-${endTime}`;
         }
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const data = { teamName, field, date, timeSlot, email };
         
-        fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbyhGbzISHQKpbrwGwZsyx_SLFcqkLUiEt58DgGxAZ5-qrb9DuHstHU0-XfNY5NbY-zNag/exec', {
+        fetch('https://laportefc-cors-bagei2.herokuapp.com/https://script.google.com/macros/s/AKfycbyhGbzISHQKpbrwGwZsyx_SLFcqkLUiEt58DgGxAZ5-qrb9DuHstHU0-XfNY5NbY-zNag/exec', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: { 'Content-Type': 'application/json' }
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (result.startsWith('Booking confirmed')) {
                 document.getElementById('message').style.color = 'green';
                 document.getElementById('requestForm').reset();
-                calendar.refetchEvents(); // Refresh calendar
+                calendar.refetchEvents();
             } else {
                 document.getElementById('message').style.color = 'red';
             }
